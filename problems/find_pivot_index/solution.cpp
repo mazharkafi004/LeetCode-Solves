@@ -23,7 +23,7 @@ public:
                     rightsum = 0;
                     if (leftsum == rightsum)
                     {
-                        return l+1;
+                        return l + 1;
                     }
                     else
                     {
