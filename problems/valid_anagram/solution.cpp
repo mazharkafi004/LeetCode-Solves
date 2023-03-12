@@ -1,34 +1,18 @@
-class Solution
-{
+class Solution {
 public:
-    bool isAnagram(string s, string t)
-    {
-        if (s.length() != t.length())
-        {
+    bool isAnagram(string s, string t) {
+        int n = s.size(), m = t.size();
+        if(n!=m){
             return false;
         }
-        int count = 0;
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
-        for (int i = 0; i < s.length(); i++)
-        {
-            if (s[i] == t[i])
-            {
-                count++;
-            }
-            else
-            {
-                count = 0;
-                break;
+        sort(s.begin(),s.end());
+        sort(t.begin(),t.end());
+        for(int i=0;i<n;i++){
+            if(s[i]!=t[i]){
+                return false;
             }
         }
-        if (count == 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return true;
+        
     }
 };
