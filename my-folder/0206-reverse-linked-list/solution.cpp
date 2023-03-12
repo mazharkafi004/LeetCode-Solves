@@ -8,22 +8,16 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution
-{
+class Solution {
 public:
-    ListNode *reverseList(ListNode *head)
-    {
-
-        ListNode *previous = NULL, *current = head, *next = NULL;
-
-        while (current != NULL)
-        {
+    ListNode* reverseList(ListNode* head) {
+        ListNode *prev = NULL, *current = head, *next =NULL;
+        while(current){
             next = current->next;
-            current->next = previous;
-            previous = current;
+            current->next = prev;
+            prev = current;
             current = next;
         }
-
-        return previous;
+        return prev;
     }
 };
