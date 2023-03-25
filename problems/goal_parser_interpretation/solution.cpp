@@ -4,7 +4,8 @@ public:
     string interpret(string command)
     {
         string s;
-        for (int i = 0; i < command.length(); i++)
+        int n = command.length();
+        for (int i = 0; i < n ; i++)
         {
             if (command[i] == 'G')
             {
