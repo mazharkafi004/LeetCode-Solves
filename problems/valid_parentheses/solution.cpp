@@ -9,34 +9,18 @@ public:
         stack<char> t;
         for (int i = 0; i < s.length(); i++)
         {
-            if (s[i] == '(' || s[i] == '{' || s[i] == '[')
-            {
-                t.push(s[i]);
-            }
-            else
-            {
-                if (t.empty())
-                {
-                    return false;
-                }
-                else
-                {
-                    if (s[i] == ')' && t.top() != '(')
-                    {
-                        return false;
-                    }
-                    if (s[i] == '}' && t.top() != '{')
-                    {
-                        return false;
-                    }
-                    if (s[i] == ']' && t.top() != '[')
-                    {
-                        return false;
-                    }
-                    t.pop();
-                }
-            }
-           
+         if(s[i]=='}' && !t.empty() && t.top()=='{') {
+             t.pop();
+         }
+         else if(s[i]==')' && !t.empty() && t.top()=='(') {
+             t.pop();
+         }
+         else if(s[i]==']' && !t.empty() && t.top()=='[') {
+             t.pop();
+         }
+         else{
+             t.push(s[i]);
+         }
         }
          return t.empty();
     }
