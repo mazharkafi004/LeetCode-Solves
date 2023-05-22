@@ -1,34 +1,26 @@
-class Solution
-{
+class Solution {
 public:
-    vector<int> topKFrequent(vector<int> &nums, int k)
-    {
-        map<int, int> counter;
-        vector<int> temp;
-        vector<int> ans;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            counter[nums[i]]++;
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int,int> freq;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            freq[nums[i]]++;
         }
-        int i = 0;
-        multimap<int, int> multiMap;
-
-        for (auto m : counter)
-        {
-            multiMap.insert(make_pair(m.second, m.first));
+        priority_queue<pair<int,int>> pq;
+        for(auto i:freq){
+          pq.push({i.second,i.first});
         }
-        for (auto em : multiMap)
-        {
-            temp.push_back(em.second);
-        }
-        if (temp.size() == k)
-        {
-            return temp;
-        }
-        for (int i = temp.size() - 1; i >= (temp.size()) - k; i--)
-        {
-            ans.push_back(temp[i]);
-        }
-        return ans;
+        vector<int> frequentElements;
+        int cnt = 0;
+        while(!pq.empty()){
+            if(cnt==k){
+                break;
+            }
+            int element = pq.top().second;
+            frequentElements.push_back(element);
+            cnt++;
+            pq.pop();
+        }  
+        return frequentElements;
     }
 };
