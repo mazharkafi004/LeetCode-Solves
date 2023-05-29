@@ -1,4 +1,4 @@
-# LeetCode Problem Solutions
+### LeetCode Problem Solutions
 
 This repository contains my solutions to various LeetCode problems. LeetCode is a popular online platform that offers a wide range of coding challenges to help improve algorithmic and problem-solving skills.
 
@@ -23,6 +23,7 @@ The repository is organized in the following structure:
   - ...
 - README.md
 - LICENSE 
+
 All the problem folders are located within the `problems` directory. Each problem folder is named after the problem it solves and contains the corresponding solution file.
 
 ## Solutions
