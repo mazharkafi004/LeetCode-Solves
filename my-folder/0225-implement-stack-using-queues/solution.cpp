@@ -1,45 +1,42 @@
-class MyStack
-{
-public:
-    queue<int> queue;
-    MyStack()
-    {
-    }
+class MyStack {
+    public:
+    queue<int> que;
 
-    void push(int x)
-    {
-        queue.push(x);
+     MyStack() {
+        
     }
-
-    int pop()
-    {
-        for (int i = 0; i < queue.size() - 1; i++)
-        {
-            int a = queue.front();
-            queue.pop();
-            queue.push(a);
+    
+     void push(int x) {
+        que.push(x);    
+    }
+    
+     int pop() {
+        
+        for(int i=0;i<que.size()-1;i++){
+          int top = que.front();
+          que.pop();
+          que.push(top);
         }
-        int b = queue.front();
-        queue.pop();
-        return b;
-    }
+          int top = que.front();
+          que.pop();
+          return top;
 
-    int top()
-    {
-        return queue.back();
     }
-
-    bool empty()
-    {
-        return queue.empty();
+    
+     int top() {
+        return que.back();
+    }
+    
+     bool empty() {
+        return que.empty();
     }
 };
 
 /**
  * Your MyStack object will be instantiated and called as such:
- * MyStack* obj = new MyStack();
- * obj->push(x);
- * int param_2 = obj->pop();
- * int param_3 = obj->top();
- * bool param_4 = obj->empty();
+ * MyStack obj = new MyStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * boolean param_4 = obj.empty();
  */
