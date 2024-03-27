@@ -3,7 +3,7 @@ public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
         unordered_set<int> numsCounter1(nums1.begin(),nums1.end());
         unordered_set<int> numsCounter2(nums2.begin(),nums2.end());
-        for(int j=0;j<nums2.size();j++){
+           for(int j=0;j<nums2.size();j++){
             if(numsCounter1.count(nums2[j]) > 0){
                 numsCounter1.erase(nums2[j]);
                 j--;
@@ -20,4 +20,3 @@ public:
         return {distinct1,distinct2};
     }
 };
-
