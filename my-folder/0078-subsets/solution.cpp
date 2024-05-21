@@ -1,21 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> result;
-        vector<int> subset;
-        generate_subsets(nums,result,0,subset);
-        return result;
-    }
-
-    void generate_subsets(vector<int>& nums, vector<vector<int>>& result, int pos, vector<int>& subset){
-        int n = nums.size();
-        if(pos==n){
-            result.push_back(subset);
+    vector<vector<int>> result;
+    int n,j;
+    void backtrack(int pos, vector<int> cur, vector<int> &nums){
+        if(j==cur.size()){
+            result.push_back(cur);
             return;
         }
-        subset.push_back(nums[pos]);
-        generate_subsets(nums,result,pos+1,subset);
-        subset.pop_back();
-        generate_subsets(nums,result,pos+1,subset);
+        for(int i= pos; i<n;i++){
+            cur.push_back(nums[i]);
+            backtrack(i+1,cur,nums);
+            cur.pop_back();
+        }
+
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        n = nums.size();
+        for(j=0;j<n+1;j++){
+            vector<int> cur;
+            backtrack(0,cur,nums);
+        }
+        return result;
     }
 };
