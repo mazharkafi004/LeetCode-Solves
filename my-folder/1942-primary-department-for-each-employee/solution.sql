@@ -7,4 +7,3 @@ where primary_flag ='Y' or employee_id in (
  group by employee_id
  having count(department_id) = 1
  )
-
