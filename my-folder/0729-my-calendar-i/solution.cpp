@@ -1,24 +1,11 @@
-class MyCalendar
-{
-    unordered_map<int, int> bookings;
-
-public:
-    bool book(int start, int end)
-    {
-        for (auto &[s2, e2] : bookings)
-        {
-            if (!(start >= e2 || s2 >= end))
-            {
-                return false;
-            }
-        }
-        bookings[start] = end;
+class MyCalendar {
+    vector<pair<int, int>> books;
+public:    
+    bool book(int start, int end) {
+        for (auto [s, e] : books)
+            if (s < end && start < e) return false;
+        books.push_back({start, end});
         return true;
     }
 };
 
-/**
- * Your MyCalendar object will be instantiated and called as such:
- * MyCalendar* obj = new MyCalendar();
- * bool param_1 = obj->book(start,end);
- */
