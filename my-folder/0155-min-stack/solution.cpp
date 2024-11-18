@@ -1,5 +1,3 @@
-#include <stack>
-#include <climits>
 
 class MinStack {
 public:
